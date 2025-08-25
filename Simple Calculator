@@ -1,0 +1,78 @@
+#include <stdio.h>
+int main()
+{
+    int i,m,count=0;
+    float a,b,c,arr[1000];
+    char ch;
+    printf ("Simple Calculator:\n");
+    for (i=0; ; i++)
+    {
+        printf ("---------------------------------------------------------\n");
+        printf ("Enter s for start calculating\nEnter a for stop calculating: ");
+        scanf ("%s",&ch);
+        if (ch=='s')
+        {
+            printf ("---------------------------------------------------------\n");
+            printf ("Enter the first digit           : ");
+            scanf ("%f",&a);
+            printf ("Enter the second digit          : ");
+            scanf ("%f",&b);
+            printf ("Enter the operator (+,-,*,/,%%) : ");
+            scanf ("%s",&ch);
+            if (ch=='+')
+            {
+                arr[i]=a+b;
+                printf ("The addition                : %.2f\n",arr[i]);
+                count++;
+                continue;
+            }
+            else if (ch=='-')
+            {
+                arr[i]=a-b;
+                printf ("The subtraction             : %.2f\n",arr[i]);
+                count++;
+                continue;
+            }
+            else if (ch=='*')
+            {
+                arr[i]=a*b;
+                printf ("The multiplication          : %.2f\n",arr[i]);
+                count++;
+                continue;
+            }
+            else if (ch=='/')
+            {
+                arr[i]=a/b;
+                printf ("The division                : %.2f\n",arr[i]);
+                count++;
+                continue;
+            }
+            else if (ch=='%')
+            {
+                m=(int)a%(int)b;
+                printf ("The modulus                 : %d\n",m);
+                arr[i]=m;
+                count++;
+                continue;
+            }
+            else
+            {
+                printf ("Unidentified operation.\n");
+                continue;
+            }
+        }
+        else if (ch=='a')
+        {
+            printf ("\nThanks For using me\n");
+            break;
+        }
+        else
+            i--;
+    }
+    printf ("\nHistory of results:\n");
+    for (i=0; i<count; i++)
+    {
+        printf ("%.2f\n",arr[i]);
+    }
+    return 0;
+}
